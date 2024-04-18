@@ -93,3 +93,6 @@ character_nations = get_nation_characters(characters, nations)
 
 print("Characters related to each nation:")
 print(character_nations)
+
+
+list_of_nodes = [characters, nations]

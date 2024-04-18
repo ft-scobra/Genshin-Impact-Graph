@@ -1,1 +1,7 @@
-﻿*.html
+﻿characters.json
+graph.graphml
+
+
+.venv/
+__pycache__/
+webpages/*.html
