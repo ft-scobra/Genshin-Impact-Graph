@@ -1,5 +1,6 @@
 ﻿import scraper
 import networkx as nx
+import json
 
 
 def add_nodes(G, list_of_nodes):
@@ -24,17 +25,21 @@ def graph():
     return (G)
 
 
-def color_nodes(G, nations):
+def color_nodes(G, nations, characters, npcs):
     node_colors = []
     for node in G.nodes():
-        color = "red" if node in nations else "lightblue"
-        node_colors.append(
-            "red") if node in nations else node_colors.append("lightblue")
+        if node in nations:
+            color = "red"
+        elif node in characters:
+            color = "lightblue"
+        elif node in npcs:
+            color = "gray"
+        node_colors.append(color)
         G.nodes[node]["color"] = color
     return (G, node_colors)
 
 
-def size_nodes(G, characters, nations):
+def size_nodes(G):
     node_sizes = []
     degrees = dict(G.degree())
 
@@ -51,11 +56,15 @@ def size_nodes(G, characters, nations):
 
 def write_graph(G, name):
     nx.write_graphml(G, name+".graphml")
+    data = nx.node_link_data(G)
+    with open("graph.json", "w") as f:
+        json.dump(data, f, indent=4)
 
 
 G = graph()
-G, node_colors = color_nodes(G, scraper.nations)
-G, node_sizes = size_nodes(G, scraper.characters, scraper.nations)
+G, node_colors = color_nodes(
+    G, scraper.nations, scraper.characters, scraper.npcs)
+G, node_sizes = size_nodes(G)
 print(G)
 print(node_colors)
 print(node_sizes)

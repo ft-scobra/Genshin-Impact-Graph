@@ -19,7 +19,7 @@ def get_char_list(url):
         if existing == playable:
             return (existing, False)
         else:
-            json.dump(playable, open("characters.json", "w"))
+            json.dump(playable, open("characters.json", "w"), indent=4)
             return (playable, True)
 
 
@@ -118,5 +118,7 @@ print(character_nations)
 
 npcs = get_npc_list("webpages/lists/NPC_List.html")
 
+print("NPC List: ", npcs)
 
-list_of_nodes = [characters, nations]
+
+list_of_nodes = [characters, nations, npcs]
