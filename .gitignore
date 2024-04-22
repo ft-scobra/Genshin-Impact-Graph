@@ -4,4 +4,4 @@ graph.graphml
 
 .venv/
 __pycache__/
-webpages/*.html
+webpages/**/*.html
