@@ -1,6 +1,5 @@
 ﻿import scraper
 import networkx as nx
-import matplotlib.pyplot as plt
 
 
 def add_nodes(G, list_of_nodes):
