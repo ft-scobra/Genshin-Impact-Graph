@@ -104,7 +104,7 @@ print("===")
 print("Scrape: ", should_scrape)
 print("===")
 
-# scraper(should_scrape)
+scraper(should_scrape)
 
 nations = get_nation_list("webpages/lists/Nation_List.html")
 
