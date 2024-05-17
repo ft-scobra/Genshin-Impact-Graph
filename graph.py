@@ -62,10 +62,10 @@ def size_nodes(G):
     return (G, node_sizes)
 
 
-def write_graph(G, name):
-    nx.write_graphml(G, name+".graphml")
+def write_graph(G):
+    nx.write_graphml(G, "./Graph/graph.graphml")
     data = nx.node_link_data(G)
-    with open("graph.json", "w") as f:
+    with open("./Graph/graph.json", "w") as f:
         json.dump(data, f, indent=4)
 
 
@@ -73,7 +73,4 @@ G = graph()
 G, node_colors = color_nodes(G)
 G, node_sizes = size_nodes(G)
 print(G)
-# print(node_colors)
-# print(node_sizes)
-
-write_graph(G, "graph")
+write_graph(G)

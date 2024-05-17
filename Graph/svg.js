@@ -7,7 +7,7 @@ const width = window.innerWidth;
 const height = window.innerHeight;
 
 // JSON data
-const data = await d3.json("../graph.json");
+const data = await d3.json("./graph.json");
 
 // Getting Nodes and Links from Data
 const nodes = data.nodes.map(d => ({ ...d }));
